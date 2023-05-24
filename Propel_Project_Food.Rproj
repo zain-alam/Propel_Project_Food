@@ -1,13 +1,62 @@
-Version: 1.0
-
-RestoreWorkspace: Default
-SaveWorkspace: Default
-AlwaysSaveHistory: Default
-
-EnableCodeIndexing: Yes
-UseSpacesForTab: Yes
-NumSpacesForTab: 2
-Encoding: UTF-8
-
-RnwWeave: Sweave
-LaTeX: pdfLaTeX
+```{r}
+library(tidyverse)
+library(readxl)
+CPIForecast <- read_excel("~/Downloads/CPIForecast.xlsx")
+View(CPIForecast)
+CPIForecast <- CPIForecast[-c(26:41), ]
+CPIForecast <- CPIForecast[-2, ]
+CPIForecast <- CPIForecast[-3, ]
+CPIForecast <- CPIForecast[-13, ]
+CPIForecast$...7 <- as.numeric(CPIForecast$...7)
+CPIForecast$...7 <- as.numeric(CPIForecast$Annual_2020)
+difference <- CPIForecast$Annual_2021 - CPIForecast$Annual_2020
+difference1 <- CPIForecast$Annual_2022 - CPIForecast$Annual_2021
+print(difference)
+print(difference1)
+CPIForecast$difference <- difference
+CPIForecast$difference1 <- difference1
+newCPIForecast <- select(Consumer_Price_Index_item, difference, difference1)
+print(column_names)
+column_names <- colnames(CPIForecast)
+print(column_names)
+newCPIForecast <- select(Consumer_Price_Index_item, difference,  difference1)
+select(Consumer_Price_Index_item, difference,  difference1)
+newCPIForecast <- select(CPIForecast$Consumer_Price_Index_item, difference,  difference1)
+Consumer_Price_Index_item <- CPIForecast$Consumer_Price_Index_item
+newCPIForecast <- select(Consumer_Price_Index_item, difference,  difference1)''
+newCPIForecast <- select(Consumer_Price_Index_item, difference,  difference1)
+select(Consumer_Price_Index_item, difference,  difference1)
+newCPIForecast <- select(Consumer_Price_Index_item, difference, difference1)
+newCPIForecast <- select(Consumer_Price_Index_item, difference,  difference1)
+# Assuming your dataset has columns named "column1" and "column2"
+CPIForecast_New <- CPIForecast[, c("Consumer_Price_Index_item", "difference", "difference1")]
+View(CPIForecast_New)
+CPIForecast_New <- CPIForecast_New[order(-CPIForecast_New$difference), ]
+CPIForecast_New <- CPIForecast_New[order(-CPIForecast_New$difference1), ]
+CPIForecast_New <- CPIForecast_New[order(-CPIForecast_New$difference), ]
+CPIForecast_New <- CPIForecast_New[order(-CPIForecast_New$difference), (-CPIForecast_New$difference1) ]
+CPIForecast_New <- CPIForecast_New[order(-CPIForecast_New$difference), (-CPIForecast_New$difference1), ]
+CPIForecast_New <- CPIForecast_New[order(-CPIForecast_New$difference, -CPIForecast_New$difference1) ]
+CPIForecast_New <- CPIForecast_New[order(-CPIForecast_New$difference, -CPIForecast_New$difference1), ]
+CPIForecast_New <- CPIForecast[order(-CPIForecast$difference), (-CPIForecast$difference1) ]
+CPIForecast_New <- CPIForecast_New[order(-CPIForecast_New$difference, -CPIForecast_New$difference1), ]
+CPIForecast_New <- CPIForecast_New[order(-CPIForecast_New$difference1), ]
+CPIForecast_New <- CPIForecast_New[order(-CPIForecast_New$difference1, -CPIForecast_New$difference), ]
+CPIForecast_21_to_22 <- CPIForecast_New[, c("Consumer_Price_Index_item", "difference",)]
+CPIForecast_21_to_22 <- CPIForecast_New[, c("Consumer_Price_Index_item", "difference")]
+CPIForecast_21_to_22 <- CPIForecast_New[, c("Consumer_Price_Index_item", "difference1")]
+CPIForecast_20_to_21 <- CPIForecast_New[, c("Consumer_Price_Index_item", "difference")]
+CPIForecast_20_to_21 <- CPIForecast_20_to_21[order(-CPIForecast_20_to_21$difference), ]
+CPIForecast_21_to_22 <- CPIForecast_21_to_22[order(-CPIForecast_21_to_22$difference1), ]
+barplot(difference1)
+barplot(height = CPIForecast_21_to_22$difference1,
++         names.arg = CPIForecast_21_to_22$Consumer_Price_Index_item,
+barplot(CPIForecast_20_to_21)
+barplot(height = CPIForecast_20_to_21$difference,
++         names.arg = CPIForecast_20_to_21$Consumer_Price_Index_item,
+barplot(ylab = height, xlab = names.arg, CPIForecast_20_to_21)
+barplot(CPIForecast_20_to_21, ylab = height, xlab = names.arg, )
+barplot(difference)
+barplot(height = CPIForecast_20_to_21$difference,
+names.arg = CPIForecast_20_to_21$Consumer_Price_Index_item,
+xlab = "Consumer Price Index Item", ylab = "Difference")
