@@ -6,6 +6,7 @@ My data manipulation involved making new columns that displayed the price change
 I then made a new dataset by selecting the specific columns that I wanted.
 I was able to make the order of the column descend in decreasing values.
 This let me graph it to visually show the food categories with the largest change in price between years.
+The Consumer Price Index (CPI) records the price changes of food products over time. This is helpful for observing the current trends in prices as well as predicting future trends.
 
 References: Albert Lee's Data Manipulation Videos, ChatGPT, data.gov, Microsoft Excel
 
